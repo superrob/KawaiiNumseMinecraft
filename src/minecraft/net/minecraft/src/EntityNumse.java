@@ -38,7 +38,7 @@ public class EntityNumse extends EntityTameable {
         	break;
         }
         moveSpeed = 0.31F;
-        tasks.addTask(1, new EntityAINumseAttack(this, moveSpeed, 1, 20));
+        tasks.addTask(1, new EntityAINumseAttack(this, moveSpeed, 1, 50,5));
         tasks.addTask(2, new EntityAIWander(this, moveSpeed));
         tasks.addTask(3, new EntityAISwimming(this));
         tasks.addTask(4, new EntityAIFollowOwner(this, moveSpeed, 10F, 2.0F));

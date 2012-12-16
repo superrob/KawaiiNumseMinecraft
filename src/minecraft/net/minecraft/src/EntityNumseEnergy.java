@@ -5,6 +5,7 @@ import net.minecraft.client.Minecraft;
 public class EntityNumseEnergy extends EntityThrowable
 {
 	public int damage = 1;
+	public Entity shootingEntity;
     public EntityNumseEnergy(World par1World)
     {
         super(par1World);
@@ -13,6 +14,7 @@ public class EntityNumseEnergy extends EntityThrowable
     public EntityNumseEnergy(World par1World, EntityLiving par2EntityLiving)
     {
         super(par1World, par2EntityLiving);
+    	this.shootingEntity = par2EntityLiving;
     }
 
     public EntityNumseEnergy(World par1World, double par2, double par4, double par6)
@@ -78,7 +80,7 @@ public class EntityNumseEnergy extends EntityThrowable
     {
         if (par1MovingObjectPosition.entityHit != null)
         {        	
-            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.func_85052_h()), damage); // func_85052_h = thrower
+            par1MovingObjectPosition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.shootingEntity), damage); // func_85052_h = thrower
         }
 
     	Object obj = null;

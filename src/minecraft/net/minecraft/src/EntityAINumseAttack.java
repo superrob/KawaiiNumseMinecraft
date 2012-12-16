@@ -13,6 +13,8 @@ public class EntityAINumseAttack extends EntityAIBase
      * maxRangedAttackTime.
      */
     int rangedAttackTime = 0;
+    int rangedAttacksSinceCap = 0;
+    int timeUntilCapReset = 0;
     float entityMoveSpeed;
     int field_75318_f = 0;
 
@@ -24,15 +26,17 @@ public class EntityAINumseAttack extends EntityAIBase
     /**
      * The maximum time the AI has to wait before peforming another ranged attack.
      */
+    int maxRangedAttacks;
     int maxRangedAttackTime;
 
-    public EntityAINumseAttack(EntityLiving par1EntityLiving, float par2, int par3, int par4)
+    public EntityAINumseAttack(EntityLiving par1EntityLiving, float par2, int par3, int par4, int par5)
     {
         this.entityHost = par1EntityLiving;
         this.worldObj = par1EntityLiving.worldObj;
         this.entityMoveSpeed = par2;
         this.rangedAttackID = par3;
         this.maxRangedAttackTime = par4;
+        this.maxRangedAttacks = par5;
         this.setMutexBits(3);
     }
 
@@ -98,6 +102,14 @@ public class EntityAINumseAttack extends EntityAIBase
         }
 
         this.entityHost.getLookHelper().setLookPositionWithEntity(this.attackTarget, 30.0F, 30.0F);
+        
+        if (this.timeUntilCapReset > 0) {
+        	this.timeUntilCapReset = Math.max(this.timeUntilCapReset - 1, 0);
+        	if (this.timeUntilCapReset <= 0) {
+        		this.rangedAttacksSinceCap = 0;
+        	}
+        }
+        
         this.rangedAttackTime = Math.max(this.rangedAttackTime - 1, 0);
 
         if (this.rangedAttackTime <= 0)
@@ -105,7 +117,14 @@ public class EntityAINumseAttack extends EntityAIBase
             if (var3 <= var1 && var5)
             {
                 this.doRangedAttack();
-                this.rangedAttackTime = this.maxRangedAttackTime;
+                if (this.rangedAttacksSinceCap < this.maxRangedAttacks) {
+                	this.rangedAttackTime = 3;
+                	this.timeUntilCapReset = this.maxRangedAttackTime;
+                	this.rangedAttacksSinceCap++;
+                } else {
+                	this.rangedAttackTime = this.maxRangedAttackTime;
+                	this.rangedAttacksSinceCap = 0;
+                }
             }
         }
     }
@@ -124,7 +143,7 @@ public class EntityAINumseAttack extends EntityAIBase
 	    if (attackTarget instanceof EntityMob) {
 	    	entityenergy.damage = 5;
 	    }
-	    worldObj.playSoundAtEntity(entityHost, "mob.numseshoot", 1.0F, 1.0F / (entityHost.getRNG().nextFloat() * 0.4F + 0.8F));
+	    worldObj.playSoundAtEntity(entityHost, "mob.numse.numseshoot", 1.0F, 1.0F / (entityHost.getRNG().nextFloat() * 0.4F + 0.8F));
 	    worldObj.spawnEntityInWorld(entityenergy);
     }
 }
