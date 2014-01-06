@@ -1,9 +1,7 @@
 KawaiiNumseMinecraft
 ====================
 
-My mod adding the Kawaii numse creatures to Minecraft.
-Requires Modloader.
+An mod for Minecraft adding the mystical "Kawaii Numse" creatures to the game.
+Requires forge modloader and are currently made for 1.6.4
 
-Add the folders to your MCP installation and add the contents off "AddToMinecraftJar" into your minecraft.jar file.
-
-To install the prepacked mod unrar the "prepacked.rar" file into your .minecraft folder and have modloader installed.
+Currently the mod is in progress of being ported from 1.4.5 (Where i used Modloader) to 1.6.4 with Forge Modloader instead.
