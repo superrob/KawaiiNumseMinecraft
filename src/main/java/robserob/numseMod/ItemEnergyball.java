@@ -2,21 +2,25 @@ package robserob.numseMod;
 
 import java.util.Random;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemEnergyball extends Item
-{
-    public ItemEnergyball(int par1)
+public class ItemEnergyball extends Item {
+    public ItemEnergyball()
     {
-        super(par1);
+        super();
+        setUnlocalizedName("Energy ball");
+        setCreativeTab(CreativeTabs.tabMaterials);
+        setTextureName("numsemod:energyball");
         maxStackSize = 64;
     }
 
     /**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     * Called whenever this item is equipped and the right mouse button is
+     * pressed. Args: itemStack, world, entityPlayer
      */
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
