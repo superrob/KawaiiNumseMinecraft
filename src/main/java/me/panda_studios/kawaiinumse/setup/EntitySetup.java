@@ -19,5 +19,5 @@ public class EntitySetup {
                 () -> EntityType.Builder.of(entity, MobCategory.CREATURE).sized(width, height).build(name));
     }
 
-    public static final RegistryObject<EntityType<KawaiiNumseEntity>> KAWAIINUMSE = buildEntity(KawaiiNumseEntity::new, KawaiiNumseEntity.class, .7F, 1.3F);
+    public static final RegistryObject<EntityType<KawaiiNumseEntity>> KAWAIINUMSE = buildEntity(KawaiiNumseEntity::new, KawaiiNumseEntity.class, 1f, 1f);
 }

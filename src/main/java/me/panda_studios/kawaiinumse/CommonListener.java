@@ -12,6 +12,9 @@ public class CommonListener {
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         event.put(EntitySetup.KAWAIINUMSE.get(),
-                Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 1.0D).build());
+                Mob.createMobAttributes()
+                        .add(Attributes.MAX_HEALTH, 20)
+                        .add(Attributes.MOVEMENT_SPEED, 0.25)
+                        .build());
     }
 }
