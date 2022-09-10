@@ -1,6 +1,5 @@
 package me.panda_studios.kawaiinumse.entity.block;
 
-import me.panda_studios.kawaiinumse.Kawaiinumse;
 import me.panda_studios.kawaiinumse.setup.EntitySetup;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -17,8 +16,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.network.PacketDistributor;
 
 import javax.annotation.Nullable;
 

@@ -1,9 +1,10 @@
 {
-  "entity.kawaiinumse.kawaiinumseentity": "Kawaii numse",
+  "entity.kawaiinumse.kawaiinumse": "Kawaii numse",
 
   "item.kawaiinumse.rainbow_poop": "Rainbow poop",
   "item.kawaiinumse.poop": "Poop",
   "item.kawaiinumse.rainbow_tnt": "Rainbow TNT",
+  "item.kawaiinumse.rainbow_dust": "Rainbow Dust",
 
   "block.kawaiinumse.rainbow_tnt": "Rainbow TNT",
 

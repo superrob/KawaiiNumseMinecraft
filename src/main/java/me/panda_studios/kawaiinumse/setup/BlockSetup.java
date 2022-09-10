@@ -2,7 +2,6 @@ package me.panda_studios.kawaiinumse.setup;
 
 import me.panda_studios.kawaiinumse.Kawaiinumse;
 import me.panda_studios.kawaiinumse.block.RainbowTNT;
-import me.panda_studios.kawaiinumse.item.PoopItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;

@@ -3,7 +3,6 @@ package me.panda_studios.kawaiinumse.entity.model;
 import me.panda_studios.kawaiinumse.Kawaiinumse;
 import me.panda_studios.kawaiinumse.entity.KawaiiNumseEntity;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.processor.IBone;
 import software.bernie.geckolib3.model.AnimatedGeoModel;

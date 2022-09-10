@@ -2,6 +2,7 @@ package me.panda_studios.kawaiinumse.setup;
 
 import me.panda_studios.kawaiinumse.Kawaiinumse;
 import me.panda_studios.kawaiinumse.item.PoopItem;
+import me.panda_studios.kawaiinumse.item.RainbowDustItem;
 import me.panda_studios.kawaiinumse.item.RainbowPoopItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -16,4 +17,6 @@ public class ItemSetup {
             ITEMS.register("rainbow_poop", () -> new RainbowPoopItem(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)));
     public static final RegistryObject<Item> POOP =
             ITEMS.register("poop", () -> new PoopItem(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)));
+    public static final RegistryObject<Item> RAINBOW_DUST =
+            ITEMS.register("rainbow_dust", () -> new RainbowDustItem(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
 }

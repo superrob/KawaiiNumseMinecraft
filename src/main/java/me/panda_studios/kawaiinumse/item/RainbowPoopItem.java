@@ -2,10 +2,8 @@ package me.panda_studios.kawaiinumse.item;
 
 import me.panda_studios.kawaiinumse.setup.EffectSetup;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BoneMealItem;
-import net.minecraft.world.item.Item;
 
 public class RainbowPoopItem extends BoneMealItem {
     public RainbowPoopItem(Properties properties) {
