@@ -2,5 +2,10 @@
   "entity.kawaiinumse.kawaiinumseentity": "Kawaii numse",
 
   "item.kawaiinumse.rainbow_poop": "Rainbow poop",
-  "item.kawaiinumse.poop": "Poop"
+  "item.kawaiinumse.poop": "Poop",
+  "item.kawaiinumse.rainbow_tnt": "Rainbow TNT",
+
+  "block.kawaiinumse.rainbow_tnt": "Rainbow TNT",
+
+  "effect.kawaiinumse.diarrhea": "Diarrhea"
 }

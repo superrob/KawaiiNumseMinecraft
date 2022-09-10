@@ -2,10 +2,14 @@ buildscript {
     repositories {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+//        maven { url = 'https://maven.minecraftforge.net' }
+//        maven { url = 'https://maven.parchmentmc.org' }
         mavenCentral()
     }
     dependencies {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+//        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+//        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
@@ -14,6 +18,8 @@ plugins {
 }
 
 apply plugin: 'org.spongepowered.mixin'
+//apply plugin: 'net.minecraftforge.gradle'
+//apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 group = 'me.panda_studios'
 version = '1.0-SNAPSHOT'

@@ -1,5 +1,6 @@
 package me.panda_studios.kawaiinumse;
 
+import me.panda_studios.kawaiinumse.entity.block.render.RainbowTNTPrimedRender;
 import me.panda_studios.kawaiinumse.entity.render.KawaiiNumseRender;
 import me.panda_studios.kawaiinumse.setup.EntitySetup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -12,5 +13,6 @@ public class ClientListener {
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntitySetup.KAWAIINUMSE.get(), KawaiiNumseRender::new);
+        event.registerEntityRenderer(EntitySetup.RAINBOW_TNT.get(), RainbowTNTPrimedRender::new);
     }
 }

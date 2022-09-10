@@ -43,7 +43,7 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
         super.registerGoals();
     }
 
-    boolean canPoop = false;
+    boolean canPoop = true;
     int poopRSTime = 1500;
     public int poopTime = this.random.nextInt(poopRSTime) + poopRSTime;
 
