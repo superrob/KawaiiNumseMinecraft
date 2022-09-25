@@ -121,11 +121,6 @@ public class RainbowTNTPrimed extends Entity {
         this.setFuse(compoundTag.getShort("Fuse"));
     }
 
-    @Nullable
-    public LivingEntity getOwner() {
-        return this.owner;
-    }
-
     protected float getEyeHeight(Pose pose, EntityDimensions dimensions) {
         return 0.15F;
     }

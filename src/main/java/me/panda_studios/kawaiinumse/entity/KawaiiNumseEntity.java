@@ -14,6 +14,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.SmallFireball;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib3.core.IAnimatable;
@@ -165,14 +166,19 @@ class AttackGoal extends Goal {
                         double d3 = livingentity.getZ() - this.entity.getZ();
                         double d4 = Math.sqrt(Math.sqrt(d0)) * 0.5D;
 
-                        SmallFireball smallfireball = new SmallFireball(
-                                this.entity.level,
-                                this.entity,
-                                this.entity.getRandom().triangle(d1, 2.297D * d4), d2,
-                                this.entity.getRandom().triangle(d3, 2.297D * d4)
-                        );
-                        smallfireball.setPos(smallfireball.getX(), this.entity.getY(0.5D) + 0.5D, smallfireball.getZ());
-                        this.entity.level.addFreshEntity(smallfireball);
+//                        SmallFireball smallfireball = new SmallFireball(
+//                                this.entity.level,
+//                                this.entity,
+//                                this.entity.getRandom().triangle(d1, 2.297D * d4), d2,
+//                                this.entity.getRandom().triangle(d3, 2.297D * d4)
+//                        );
+//                        smallfireball.setPos(smallfireball.getX(), this.entity.getY(0.5D) + 0.5D, smallfireball.getZ());
+//                        this.entity.level.addFreshEntity(smallfireball);
+
+                        ThrownEnergyball thrownEnergyball = new ThrownEnergyball(this.entity.level, this.entity);
+                        thrownEnergyball.setItem(new ItemStack(ItemSetup.RAINBOW_ENERGY.get()));
+                        thrownEnergyball.shootFromRotation(this.entity, this.entity.getXRot(), this.entity.getYRot(), 0.0F, 1.5F, 1.0F);
+                        this.entity.level.addFreshEntity(thrownEnergyball);
                     }
                 } else {
                     this.entity.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);

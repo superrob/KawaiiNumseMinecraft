@@ -2,6 +2,7 @@ package me.panda_studios.kawaiinumse.setup;
 
 import me.panda_studios.kawaiinumse.Kawaiinumse;
 import me.panda_studios.kawaiinumse.entity.KawaiiNumseEntity;
+import me.panda_studios.kawaiinumse.entity.ThrownEnergyball;
 import me.panda_studios.kawaiinumse.entity.block.RainbowTNTPrimed;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -19,6 +20,7 @@ public class EntitySetup {
     }
 
     public static final RegistryObject<EntityType<KawaiiNumseEntity>> KAWAIINUMSE = buildEntity("kawaiinumse", KawaiiNumseEntity::new, 1f, 1f);
-
     public static final RegistryObject<EntityType<RainbowTNTPrimed>> RAINBOW_TNT = buildEntity("rainbow_tnt", RainbowTNTPrimed::new, 1f, 1f);
+
+    public static final RegistryObject<EntityType<ThrownEnergyball>> RAINBOW_ENERGY = buildEntity("rainbow_energy", ThrownEnergyball::new, 0.5f, 0.5f);
 }
