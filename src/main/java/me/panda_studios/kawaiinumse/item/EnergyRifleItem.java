@@ -1,20 +1,16 @@
 package me.panda_studios.kawaiinumse.item;
 
 import me.panda_studios.kawaiinumse.entity.ThrownEnergyball;
-import me.panda_studios.kawaiinumse.setup.EntitySetup;
 import me.panda_studios.kawaiinumse.setup.ItemSetup;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownEgg;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.Level;
-
-import java.util.Set;
-import java.util.function.Predicate;
 
 public class EnergyRifleItem extends Item {
     public EnergyRifleItem(Properties properties) {
@@ -23,6 +19,7 @@ public class EnergyRifleItem extends Item {
                 .rarity(Rarity.RARE)
         );
     }
+
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack ammoItemStack = new ItemStack(ItemSetup.RAINBOW_ENERGY.get());
@@ -58,5 +55,10 @@ public class EnergyRifleItem extends Item {
         }
 
         return InteractionResultHolder.sidedSuccess(itemStack, level.isClientSide());
+    }
+
+    @Override
+    public boolean isValidRepairItem(ItemStack currentItem, ItemStack ingredientItem) {
+        return ingredientItem.sameItem(new ItemStack(ItemSetup.RAINBOW_ENERGY.get())) || super.isValidRepairItem(currentItem, ingredientItem);
     }
 }

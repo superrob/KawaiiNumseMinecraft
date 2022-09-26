@@ -16,6 +16,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BonemealableBlock;
+import net.minecraft.world.level.block.GrassBlock;
+import net.minecraft.world.level.block.TallGrassBlock;
 
 import javax.annotation.Nullable;
 
@@ -95,7 +97,6 @@ public class RainbowTNTPrimed extends Entity {
 
     protected void explode() {
         this.level.playSound(null, this.getX(), this.getY(), this.getZ(), SoundEvents.GENERIC_EXPLODE, SoundSource.BLOCKS, 1.0F, 1.0F);
-
         Explosion explosion = new Explosion(this.level, this, null, null, this.getX(), this.getY(0.0625D), this.getZ(), 4.0F, false, Explosion.BlockInteraction.NONE);
         explosion.explode();
         for (BlockPos block: explosion.getToBlow()) {
@@ -104,7 +105,17 @@ public class RainbowTNTPrimed extends Entity {
                 if (bonemealableBlock.isValidBonemealTarget(this.level, block, this.level.getBlockState(block), this.level.isClientSide)) {
                     if (this.level instanceof ServerLevel) {
                         if (bonemealableBlock.isBonemealSuccess(this.level, this.level.random, block, this.level.getBlockState(block))) {
-                            bonemealableBlock.performBonemeal((ServerLevel)this.level, this.level.random, block, this.level.getBlockState(block));
+                            if (this.level.getBlockState(block).getBlock() instanceof GrassBlock ||
+                                    this.level.getBlockState(block).getBlock() instanceof TallGrassBlock) {
+                                int max = 10;
+                                int min = 1;
+                                int bonemealChance = this.random.nextInt(max-min) + min;
+                                if (bonemealChance == 1) {
+                                    bonemealableBlock.performBonemeal((ServerLevel)this.level, this.level.random, block, this.level.getBlockState(block));
+                                }
+                            } else {
+                                bonemealableBlock.performBonemeal((ServerLevel)this.level, this.level.random, block, this.level.getBlockState(block));
+                            }
                         }
                     }
                 }

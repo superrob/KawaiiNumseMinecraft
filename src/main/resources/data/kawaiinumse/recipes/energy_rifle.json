@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "dei",
+    "id "
+  ],
+  "key": {
+    "e": {
+      "item": "kawaiinumse:rainbow_energy"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "d": {
+      "item": "kawaiinumse:rainbow_dust"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:energy_rifle"
+  }
+}

@@ -2,7 +2,6 @@ package me.panda_studios.kawaiinumse;
 
 import me.panda_studios.kawaiinumse.entity.block.render.RainbowTNTPrimedRender;
 import me.panda_studios.kawaiinumse.entity.render.KawaiiNumseRender;
-import me.panda_studios.kawaiinumse.entity.render.ThrownEnergyballRender;
 import me.panda_studios.kawaiinumse.setup.EntitySetup;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;

@@ -38,4 +38,9 @@ public class ThrownEnergyball extends ThrowableItemProjectile {
 
         entityHitResult.getEntity().hurt(DamageSource.thrown(this, this.getOwner()), 10);
     }
+
+    @Override
+    protected float getGravity() {
+        return 0.03f;
+    }
 }
