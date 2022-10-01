@@ -7,8 +7,8 @@
 				"texture_width": 64,
 				"texture_height": 64,
 				"visible_bounds_width": 4,
-				"visible_bounds_height": 2.5,
-				"visible_bounds_offset": [0, 0.75, 0]
+				"visible_bounds_height": 4.5,
+				"visible_bounds_offset": [0, 1.75, 0]
 			},
 			"bones": [
 				{
@@ -104,34 +104,32 @@
 					"name": "RightArm",
 					"parent": "Body",
 					"pivot": [-4.5, 9, -1],
-					"rotation": [0, -75, 0],
 					"cubes": [
-						{"origin": [-12, 8.5, -1.5], "size": [8, 1, 1], "uv": [0, 31]}
+						{"origin": [-12, 8.5, -1.5], "size": [8, 1, 1], "pivot": [-4.5, 8.5, -1], "rotation": [0, -90, 0], "uv": [0, 31]}
 					]
 				},
 				{
 					"name": "RightHand",
 					"parent": "RightArm",
-					"pivot": [-11.5, 8, -1],
+					"pivot": [-4.5, 8, -8],
 					"cubes": [
-						{"origin": [-13, 7.5, -1.5], "size": [1, 1, 1], "uv": [18, 31]}
+						{"origin": [-5, 7.5, -9.5], "size": [1, 1, 1], "uv": [18, 31]}
 					]
 				},
 				{
 					"name": "LeftArm",
 					"parent": "Body",
 					"pivot": [4.5, 9, -1],
-					"rotation": [0, 75, 0],
 					"cubes": [
-						{"origin": [4, 8.5, -1.5], "size": [8, 1, 1], "uv": [0, 34]}
+						{"origin": [4, 8.5, -1.5], "size": [8, 1, 1], "pivot": [4.5, 8.5, -1], "rotation": [0, 90, 0], "uv": [0, 34]}
 					]
 				},
 				{
 					"name": "LeftHand",
 					"parent": "LeftArm",
-					"pivot": [11.5, 8, -1],
+					"pivot": [4.5, 8, -8],
 					"cubes": [
-						{"origin": [12, 7.5, -1.5], "size": [1, 1, 1], "uv": [18, 34]}
+						{"origin": [4, 7.5, -9.5], "size": [1, 1, 1], "uv": [18, 34]}
 					]
 				}
 			]

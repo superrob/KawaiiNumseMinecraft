@@ -1,24 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "dei",
-    "ir "
+    "iri",
+    "rer",
+    "iri"
   ],
   "key": {
     "e": {
-      "item": "kawaiinumse:rainbow_energy_core"
+      "item": "kawaiinumse:rainbow_energy"
     },
     "i": {
       "item": "minecraft:iron_ingot"
-    },
-    "d": {
-      "item": "minecraft:diamond"
     },
     "r": {
       "item": "kawaiinumse:rainbow_ingot"
     }
   },
   "result": {
-    "item": "kawaiinumse:energy_rifle"
+    "item": "kawaiinumse:rainbow_energy_core"
   }
 }

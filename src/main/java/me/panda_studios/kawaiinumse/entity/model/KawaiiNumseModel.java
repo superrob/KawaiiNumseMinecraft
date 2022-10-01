@@ -31,7 +31,12 @@ public class KawaiiNumseModel extends AnimatedGeoModel<KawaiiNumseEntity> {
         IBone head = this.getAnimationProcessor().getBone("Head");
 
         EntityModelData extraData = (EntityModelData) customPredicate.getExtraDataOfType(EntityModelData.class).get(0);
-        head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
-        head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+        if (!entity.isDeadOrDying()) {
+            head.setRotationX(extraData.headPitch * ((float) Math.PI / 180F));
+            head.setRotationY(extraData.netHeadYaw * ((float) Math.PI / 180F));
+        } else {
+            head.setRotationX(0);
+            head.setRotationY(0);
+        }
     }
 }

@@ -1,8 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "dei",
-    "ir "
+    " id",
+    "iri",
+    "re "
   ],
   "key": {
     "e": {
@@ -19,6 +20,6 @@
     }
   },
   "result": {
-    "item": "kawaiinumse:energy_rifle"
+    "item": "kawaiinumse:energy_drill"
   }
 }

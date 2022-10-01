@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "rainbow_ingot",
+  "ingredient": {
+    "item": "kawaiinumse:rainbow_dust"
+  },
+  "result": "kawaiinumse:rainbow_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}
