@@ -6,9 +6,13 @@ import me.panda_studios.kawaiinumse.setup.EffectSetup;
 import me.panda_studios.kawaiinumse.setup.EntitySetup;
 import me.panda_studios.kawaiinumse.setup.ItemSetup;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.ambient.AmbientCreature;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
@@ -39,6 +43,16 @@ public class Kawaiinumse {
         BlockSetup.BLOCKS.register(modEventBus);
         EntitySetup.ENTITIES.register(modEventBus);
         EffectSetup.EFFECT.register(modEventBus);
+
+        modEventBus.addListener(this::commonSetup);
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            SpawnPlacements.register(EntitySetup.KAWAIINUMSE.get(),
+                    SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    AmbientCreature::checkMobSpawnRules);
+        });
     }
 }
 
