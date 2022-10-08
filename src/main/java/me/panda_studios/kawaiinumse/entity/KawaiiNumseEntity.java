@@ -6,18 +6,19 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -26,15 +27,18 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
+public class KawaiiNumseEntity extends TamableAnimal implements IAnimatable {
     public static final EntityDataAccessor<Integer> attackState = SynchedEntityData.defineId(KawaiiNumseEntity.class, EntityDataSerializers.INT);
 
     public static final EntityDataAccessor<Integer> redColor = SynchedEntityData.defineId(KawaiiNumseEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> greenColor = SynchedEntityData.defineId(KawaiiNumseEntity.class, EntityDataSerializers.INT);
     public static final EntityDataAccessor<Integer> blueColor = SynchedEntityData.defineId(KawaiiNumseEntity.class, EntityDataSerializers.INT);
 
-    public KawaiiNumseEntity(EntityType<? extends PathfinderMob> type, Level level) {
+    public KawaiiNumseEntity(EntityType<? extends TamableAnimal> type, Level level) {
         super(type, level);
+
+        this.setTame(false);
+        makeColor();
     }
 
     @Override
@@ -43,6 +47,7 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1, 0));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.75D, 8.0F, 4.0F, false));
 
         this.goalSelector.addGoal(2, new AttackGoal(this));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -76,6 +81,33 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
     }
 
     @Override
+    public InteractionResult mobInteract(Player player, InteractionHand interactionHand) {
+//        return super.mobInteract(player, interactionHand);
+        ItemStack itemstack = player.getItemInHand(interactionHand);
+        if (itemstack.is(ItemSetup.RAINBOW_COOKIE.get()) && !this.isAggressive() && !this.isTame()) {
+            if (!player.getAbilities().instabuild) {
+                itemstack.shrink(1);
+            }
+            if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player)) {
+                this.tame(player);
+                this.navigation.stop();
+                this.setTarget((LivingEntity) null);
+                this.level.broadcastEntityEvent(this, (byte) 7);
+            } else {
+                this.level.broadcastEntityEvent(this, (byte) 6);
+            }
+        }
+
+        return InteractionResult.FAIL;
+    }
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {
+        return null;
+    }
+
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(attackState, -1);
@@ -103,6 +135,15 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
         return new Vector3f(this.entityData.get(redColor), this.entityData.get(greenColor), this.entityData.get(blueColor));
     }
 
+    public void makeColor() {
+        int min = 1;
+        int max = 255;
+        int r = this.random.nextInt(max-min) + min;
+        int g = this.random.nextInt(max-min) + min;
+        int b = this.random.nextInt(max-min) + min;
+        setColor(r, g, b);
+    }
+
     @Override
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
@@ -114,17 +155,15 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
     @Override
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
+
         int r = (int) compoundTag.getFloat("redColor");
         int g = (int) compoundTag.getFloat("greenColor");
         int b = (int) compoundTag.getFloat("blueColor");
         if (r <= 0 || g <= 0 || b <= 0) {
-            int min = 1;
-            int max = 255;
-            r = this.random.nextInt(max-min) + min;
-            g = this.random.nextInt(max-min) + min;
-            b = this.random.nextInt(max-min) + min;
+            makeColor();
+        } else {
+            setColor(r, g, b);
         }
-        setColor(r, g, b);
     }
 
     /**
@@ -225,7 +264,7 @@ public class KawaiiNumseEntity extends PathfinderMob implements IAnimatable {
                     this.entity.level.addFreshEntity(thrownEnergyball);
                 }
                 if (d0 > this.getFollowDistance()) {
-                    this.entity.getMoveControl().setWantedPosition(livingentity.getX(), livingentity.getY(), livingentity.getZ(), 1.0D);
+                    this.entity.getNavigation().stop();
                 } else {
                     this.entity.getMoveControl().setWantedPosition(this.entity.getX(), this.entity.getY(), this.entity.getZ(), 1.0D);
                 }

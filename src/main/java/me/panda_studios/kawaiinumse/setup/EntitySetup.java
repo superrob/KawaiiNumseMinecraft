@@ -20,6 +20,7 @@ public class EntitySetup {
     }
 
     public static final RegistryObject<EntityType<KawaiiNumseEntity>> KAWAIINUMSE = buildEntity("kawaiinumse", KawaiiNumseEntity::new, 1f, 1f);
+
     public static final RegistryObject<EntityType<RainbowTNTPrimed>> RAINBOW_TNT = buildEntity("rainbow_tnt", RainbowTNTPrimed::new, 1f, 1f);
 
     public static final RegistryObject<EntityType<ThrownEnergyball>> RAINBOW_ENERGY = buildEntity("rainbow_energy", ThrownEnergyball::new, 0.5f, 0.5f);
