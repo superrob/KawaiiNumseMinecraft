@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kawaiinumse:block/rainbow_tnt_top",
+    "bottom": "kawaiinumse:block/rainbow_tnt_bottom",
+    "side": "kawaiinumse:block/rainbow_powered_tnt_side"
+  }
+}

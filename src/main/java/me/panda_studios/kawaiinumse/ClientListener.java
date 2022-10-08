@@ -1,5 +1,6 @@
 package me.panda_studios.kawaiinumse;
 
+import me.panda_studios.kawaiinumse.entity.block.render.RainbowPTNTPrimedRender;
 import me.panda_studios.kawaiinumse.entity.block.render.RainbowTNTPrimedRender;
 import me.panda_studios.kawaiinumse.entity.render.KawaiiNumseRender;
 import me.panda_studios.kawaiinumse.setup.EntitySetup;
@@ -15,6 +16,7 @@ public class ClientListener {
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntitySetup.KAWAIINUMSE.get(), KawaiiNumseRender::new);
         event.registerEntityRenderer(EntitySetup.RAINBOW_TNT.get(), RainbowTNTPrimedRender::new);
+        event.registerEntityRenderer(EntitySetup.RAINBOW_POWERED_TNT.get(), RainbowPTNTPrimedRender::new);
         event.registerEntityRenderer(EntitySetup.RAINBOW_ENERGY.get(), ThrownItemRenderer::new);
     }
 }
