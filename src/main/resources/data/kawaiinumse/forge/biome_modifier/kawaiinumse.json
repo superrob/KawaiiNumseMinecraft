@@ -2,11 +2,15 @@
   "type": "forge:add_spawns",
   "biomes": [
     "minecraft:plains",
-    "minecraft:forest"
+    "minecraft:forest",
+    "minecraft:taiga",
+    "minecraft:sunflower_plains",
+    "minecraft:flower_forest",
+    "minecraft:birch_forest"
   ],
   "spawners": {
     "type": "kawaiinumse:kawaiinumse",
-    "weight": 35,
+    "weight": 25,
     "minCount": 1,
     "maxCount": 3
   }
