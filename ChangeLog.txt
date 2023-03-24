@@ -1,0 +1,3 @@
+Added more biomes for Kawaiinumse to spawn at
+Made recipe book show recipes for items when you meet the requirements
+Added Rainbow brick with recipe

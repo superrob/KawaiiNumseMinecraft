@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "dsd",
+    "sps",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "kawaiinumse:rainbow_dust"
+    },
+    "p": {
+      "item": "kawaiinumse:rainbow_poop"
+    },
+    "s": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:rainbow_tnt"
+  }
+}

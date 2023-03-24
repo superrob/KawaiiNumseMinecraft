@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wdw"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:wheat"
+    },
+    "d": {
+      "item": "kawaiinumse:rainbow_dust"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:rainbow_cookie"
+  }
+}

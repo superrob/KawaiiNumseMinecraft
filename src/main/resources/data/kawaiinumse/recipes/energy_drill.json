@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " id",
+    "iri",
+    "re "
+  ],
+  "key": {
+    "e": {
+      "item": "kawaiinumse:rainbow_energy_core"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "r": {
+      "item": "kawaiinumse:rainbow_ingot"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:energy_drill"
+  }
+}

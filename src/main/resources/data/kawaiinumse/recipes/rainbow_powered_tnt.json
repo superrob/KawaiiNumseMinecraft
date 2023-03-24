@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "dsd",
+    "scs",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "kawaiinumse:rainbow_dust"
+    },
+    "c": {
+      "item": "kawaiinumse:rainbow_energy_core"
+    },
+    "s": {
+      "item": "minecraft:sand"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:rainbow_powered_tnt"
+  }
+}

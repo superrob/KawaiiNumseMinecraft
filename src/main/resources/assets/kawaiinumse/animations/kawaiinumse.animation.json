@@ -1,0 +1,207 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"Idle": {
+			"loop": true,
+			"bones": {
+				"Body": {
+					"rotation": [0, 0, "math.cos(query.anim_time * 50 + 100) * 2.5"],
+					"position": ["math.cos(query.anim_time * 50) * 1", "math.sin(query.anim_time * 50 * 2) * 0.25", 0]
+				},
+				"Butt": {
+					"rotation": ["-math.cos(query.anim_time * 50 * 2 + 25) * 2.5", 0, 0]
+				},
+				"RightArm": {
+					"rotation": ["math.cos(query.anim_time * 50 * 2 + 25) * 5", 10, 0]
+				},
+				"LeftArm": {
+					"rotation": ["math.cos(query.anim_time * 50 * 2 + 25) * 5", -10, 0]
+				}
+			}
+		},
+		"Move": {
+			"loop": true,
+			"bones": {
+				"Body": {
+					"position": [0, "math.sin(query.anim_time * 50 * 2) * 0.25", 0]
+				},
+				"Butt": {
+					"rotation": ["-7.5 + -math.cos(query.anim_time * 50 * 2 + 25) * 2.5", 0, 0]
+				},
+				"RightArm": {
+					"rotation": [0, 5, 0]
+				},
+				"LeftArm": {
+					"rotation": [0, -5, 0]
+				}
+			}
+		},
+		"Shoot": {
+			"animation_length": 1.2,
+			"bones": {
+				"Body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.15": [-12.5, 0, 0],
+						"0.8": [67.5, 0, 0],
+						"1.2": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.15": [0, 1, 1],
+						"0.8": [0, 0, 1],
+						"1.2": [0, 0, 0]
+					}
+				},
+				"Head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, 0, 0],
+						"0.8": [-50, 0, 0],
+						"1.2": [0, 0, 0]
+					}
+				},
+				"Butt": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.3": [0, 0, 0],
+						"0.8": [37.5, 0, 0],
+						"1.2": [0, 0, 0]
+					}
+				},
+				"RightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.15": [-35, 0, 0],
+						"0.8": [75, 0, 0],
+						"1.2": [0, 0, 0]
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.15": [-35, 0, 0],
+						"0.8": [75, 0, 0],
+						"1.2": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"Died": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"Body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.1": [5, 0, 0],
+						"0.3": [-12.5, 0, 0],
+						"0.55": [5, 0, 0],
+						"0.65": [-1, 0, 0],
+						"0.7": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.2": [0, 2, 0],
+						"0.5": [0, -6.5, 0],
+						"0.6": [0, -6, 0],
+						"0.7": [0, -6.5, 0]
+					}
+				},
+				"Head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.25": [-17.5, 0, 0],
+						"0.6": [12.57017, -4.27146, 6.59853]
+					}
+				},
+				"Butt": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.15": [-15, 0, 0],
+						"0.5": [2.5, 0, 0],
+						"0.6": [-12.5, 0, 0]
+					}
+				},
+				"RightArm": {
+					"rotation": {
+						"0.45": [0, 0, 0],
+						"0.7": [15, 25, 0]
+					}
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.45": [0, 0, 0],
+						"0.7": [15, -25, 0]
+					}
+				}
+			}
+		},
+		"Drowning": {
+			"loop": true,
+			"bones": {
+				"Body": {
+					"rotation": [-67.5, 0, 0],
+					"position": [0, "10 + math.cos(query.anim_time * 250) * 1 ", 0]
+				},
+				"RightLeg": {
+					"rotation": ["math.cos(query.anim_time * 750 + 50) * -20", "math.sin(query.anim_time * 750 + 50) * 10 + -10", 0]
+				},
+				"LeftLeg": {
+					"rotation": ["math.cos(query.anim_time * 750 + -25) * 20", "math.sin(query.anim_time * 750 + -25) * 10 + 10", 0]
+				},
+				"RightArm": {
+					"rotation": ["math.cos(query.anim_time * 750 + -50) * 20", "math.sin(query.anim_time * 750 + -50) * 10 + 10", 0]
+				},
+				"LeftArm": {
+					"rotation": ["math.cos(query.anim_time * 750) * -20", "math.sin(query.anim_time * 750) * 10 + -10", 0]
+				}
+			}
+		},
+		"Drowned": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"Body": {
+					"rotation": {
+						"0.0": [-67.5, 0, 0],
+						"1.0": [-5, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 10, 0],
+						"1.0": [0, 30, 0]
+					}
+				},
+				"RightLeg": {
+					"rotation": [0, 0, 0]
+				},
+				"LeftLeg": {
+					"rotation": [0, 0, 0]
+				},
+				"RightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [83.53365, 7.6443, 49.5675]
+					},
+					"position": [0, 0, 0]
+				},
+				"LeftArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [83.53365, -7.64427, -49.56754]
+					},
+					"position": [0, 0, 0]
+				},
+				"Head": {
+					"rotation": [0, 0, 0]
+				},
+				"Butt": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"1.0": [-40, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,7 +1,7 @@
-KawaiiNumseMinecraft
-====================
+# Welcome to my version of Robinsamse's Kawaiinumse mod
+This mod is a Fork/Remake of Robinkaja's (Superrob) KawaiiNumse Mod.
+I made this mod for fun but decided to release it for everyone to use, your allowed to use this mod in you modpack.
+If you have any wierd or dumb ideas for the mod then shere them with me in the discusion page.
 
-An mod for Minecraft adding the mystical "Kawaii Numse" creatures to the game.
-Requires forge modloader and are currently made for 1.6.4
-
-Currently the mod is in progress of being ported from 1.4.5 (Where i used Modloader) to 1.6.4 with Forge Modloader instead.
+Required Mods:
+Geckolib: https://www.curseforge.com/minecraft/mc-mods/geckolib

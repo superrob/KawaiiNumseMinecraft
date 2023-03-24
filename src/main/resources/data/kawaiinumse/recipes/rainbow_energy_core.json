@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iri",
+    "rer",
+    "iri"
+  ],
+  "key": {
+    "e": {
+      "item": "kawaiinumse:rainbow_energy"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "r": {
+      "item": "kawaiinumse:rainbow_ingot"
+    }
+  },
+  "result": {
+    "item": "kawaiinumse:rainbow_energy_core"
+  }
+}
